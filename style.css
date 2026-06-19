@@ -1,0 +1,557 @@
+/* --- Modern Variable Registry & Architecture System --- */
+:root {
+    --dark-bg: #0b0b0c;
+    --card-surface: #131315;
+    --border-subtle: #222225;
+    --text-primary: #f5f5f7;
+    --text-secondary: #8e8e93;
+    --accent: #D9C4B8; /* Updated to your custom palette code */
+    --font-base: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    font-family: var(--font-base);
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* --- Layout Navigation Engine --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.75rem 4rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    background: rgba(11, 11, 12, 0.75);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.5px;
+}
+.logo span { color: var(--accent); }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--text-primary); }
+
+/* --- Two-Column Structural Hero Grid Layout --- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 4rem 4rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+..hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -2px;
+    margin-bottom: 2rem;
+    color: #ffffff !important; /* Forces the first line to stay crisp white */
+}
+/* --- Forced Gradient Blending Engine --- */
+.gradient-text {
+    background: linear-gradient(to bottom, #c9aacc 25%, #ac87bb 50%, #a163c5 75%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: inline-block;
+}
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4rem;
+}
+
+.hero-text-side {
+    flex: 1.2;
+}
+
+.hero-image-side {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Elegant Natural Frame with Custom Ambient Border Glow --- */
+.profile-glow-wrapper {
+    position: relative;
+    width: 360px; /* Adapts beautifully to the portrait dimensions of your file */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Layered custom glow using your hex code #D9C4B8 */
+    box-shadow: 0 0 25px rgba(217, 196, 184, 0.2), 
+                0 0 50px rgba(217, 196, 184, 0.12),
+                0 0 80px rgba(217, 196, 184, 0.05);
+    border-radius: 16px; /* Smoothly rounds the sharp outer corner boundaries of the block */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.profile-avatar {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* Keeps the original image shape entirely intact without distorting */
+    border-radius: 12px;
+    opacity: 0.95; /* Subtle ambient fade entry effect */
+    transition: opacity 0.4s ease;
+}
+
+/* --- Dynamic Hover Glow Intensification --- */
+.profile-glow-wrapper:hover {
+    transform: translateY(-6px) scale(1.01);
+    
+    /* Amplifies the lighting range smoothly when you move your cursor over it */
+    box-shadow: 0 0 35px rgba(217, 196, 184, 0.35), 
+                0 0 70px rgba(217, 196, 184, 0.2),
+                0 0 100px rgba(217, 196, 184, 0.1);
+}
+
+.profile-glow-wrapper:hover .profile-avatar {
+    opacity: 1; /* Crisp clear transition on user interaction */
+}
+/* --- Silhouette Cutout Graphic Engine --- */
+.profile-silhouette-container {
+    position: relative;
+    width: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 
+       CRITICAL FEATURE: drop-shadow traces the transparent pixels of the PNG image asset.
+       We layer two glows to create a crisp interior border that melts into a softer outer aura.
+    */
+    filter: drop-shadow(0px 0px 12px rgba(217, 196, 184, 0.6))
+            drop-shadow(0px 0px 30px rgba(217, 196, 184, 0.25));
+            
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-avatar-cutout {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    opacity: 0.95;
+    transition: opacity 0.4s ease;
+}
+
+/* --- Dynamic Interaction Glow Flare --- */
+.profile-silhouette-container:hover {
+    transform: translateY(-8px) scale(1.02);
+    
+    /* Intensifies the contour light tracing when your visitor hovers over the photo */
+    filter: drop-shadow(0px 0px 18px rgba(217, 196, 184, 0.85))
+            drop-shadow(0px 0px 45px rgba(217, 196, 184, 0.4));
+}
+
+.profile-silhouette-container:hover .profile-avatar-cutout {
+    opacity: 1;
+}
+/* Dynamic hovering response */
+.profile-glow-wrapper:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 40px rgba(217, 196, 184, 0.4), 
+                0 0 80px rgba(217, 196, 184, 0.2);
+}
+
+.profile-glow-wrapper:hover .profile-avatar {
+    opacity: 1;
+}
+
+/* --- Typography Modifications --- */
+.badge {
+    align-self: flex-start;
+    background: var(--border-subtle);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255,255,255,0.05);
+    display: inline-block;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -2px;
+    margin-bottom: 2rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ffffff 40%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--text-primary);
+    color: var(--dark-bg);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255,255,255,0.05);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+}
+
+.btn-secondary:hover {
+    background: var(--card-surface);
+}
+
+/* --- Section Layout Utilities --- */
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+/* --- Skills Block Layout --- */
+.skills-section {
+    padding: 8rem 4rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.skills-section .section-title { margin-bottom: 3.5rem; }
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-category-card {
+    background: var(--card-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 2.5rem;
+    border-radius: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.skill-category-card:hover {
+    border-color: var(--accent);
+}
+
+.skill-category-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.skill-category-card p {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* --- Work Showcase Layout --- */
+.work-section {
+    padding: 8rem 4rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.achievement-pill {
+    background: rgba(217, 196, 184, 0.08);
+    color: var(--accent);
+    border: 1px solid rgba(217, 196, 184, 0.15);
+    padding: 0.6rem 1.2rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    background: var(--card-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.project-card.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-media {
+    width: 100%;
+    height: 260px;
+}
+
+.project-meta {
+    padding: 2.5rem;
+}
+
+.proj-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.project-meta h3 {
+    font-size: 1.6rem;
+    margin: 0.5rem 0 1rem 0;
+    letter-spacing: -0.5px;
+}
+
+.project-meta p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 0.98rem;
+}
+
+.proj-tech {
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    background: rgba(255,255,255,0.03);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* --- Interactive Timeline Matrix --- */
+.experience-section {
+    padding: 8rem 4rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.experience-section .section-title { margin-bottom: 5rem; }
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 250px;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: var(--border-subtle);
+}
+
+.timeline-item {
+    display: flex;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.time-meta {
+    width: 220px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.time-meta .date {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.time-meta .org {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.time-content {
+    padding-left: 5rem;
+}
+
+.time-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.time-content p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 750px;
+}
+
+/* --- Custom Pointer Dot --- */
+.custom-cursor {
+    width: 6px;
+    height: 6px;
+    background-color: var(--text-primary);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.custom-cursor.scale-up {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --- Footer Engine --- */
+.footer-section {
+    padding: 10rem 4rem 6rem 4rem;
+    text-align: center;
+    border-top: 1px solid var(--border-subtle);
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.footer-pre {
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section h2 {
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+    margin-bottom: 3rem;
+}
+
+.footer-sub-links {
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    margin-bottom: 6rem;
+}
+
+.copyright {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    opacity: 0.4;
+}
+
+/* --- Breakpoint Media Queries --- */
+@media (max-width: 1024px) {
+    .hero-container { flex-direction: column-reverse; text-align: center; gap: 3rem; }
+    .badge { align-self: center; }
+    .hero-title { font-size: 3rem; }
+    .cta-group { justify-content: center; }
+    .timeline::before { display: none; }
+    .timeline-item { flex-direction: column; gap: 1rem; }
+    .time-content { padding-left: 0; }
+    .time-meta { width: 100%; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 1.5rem 2rem; }
+    .nav-links { display: none; }
+    .hero-section, .skills-section, .work-section, .experience-section, .footer-section { padding: 4rem 2rem; }
+    .hero-title { font-size: 2.25rem; }
+    .footer-section h2 { font-size: 1.8rem; }
+    .profile-glow-wrapper { width: 260px; height: 320px; }
+}
